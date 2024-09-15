@@ -164,7 +164,6 @@ COPY build/ffmpeg-wasm.sh build.sh
 # libraries to link
 ENV FFMPEG_LIBS \
       -lx264 \
-      -lx265 \
       -lvpx \
       -lmp3lame \
       -logg \
