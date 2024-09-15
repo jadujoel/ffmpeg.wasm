@@ -19,7 +19,6 @@ CONF_FLAGS=(
   -Llibavutil
   -Llibpostproc
   -Llibswresample
-  -Llibswscale
   -lavcodec
   -lavdevice
   -lavfilter
