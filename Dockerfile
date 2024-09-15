@@ -173,11 +173,7 @@ ENV FFMPEG_LIBS \
       -lwebpmux \
       -lwebp \
       -lsharpyuv \
-      -lfreetype \
-      -lfribidi \
-      -lharfbuzz \
-      -lass \
-      -lzimg
+      -lfreetype
 RUN mkdir -p /src/dist/esm && bash -x /src/build.sh \
       ${FFMPEG_LIBS} \
       -sEXPORT_ES6 \
