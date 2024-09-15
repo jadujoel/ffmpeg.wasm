@@ -27,12 +27,6 @@ ADD https://github.com/ffmpegwasm/x264.git#$X264_BRANCH /src
 COPY build/x264.sh /src/build.sh
 RUN bash -x /src/build.sh
 
-# Build x265
-FROM emsdk-base AS x265-builder
-ENV X265_BRANCH=3.4
-ADD https://github.com/ffmpegwasm/x265.git#$X265_BRANCH /src
-COPY build/x265.sh /src/build.sh
-RUN bash -x /src/build.sh
 
 # Build libvpx
 FROM emsdk-base AS libvpx-builder
@@ -41,12 +35,6 @@ ADD https://github.com/ffmpegwasm/libvpx.git#$LIBVPX_BRANCH /src
 COPY build/libvpx.sh /src/build.sh
 RUN bash -x /src/build.sh
 
-# Build lame
-FROM emsdk-base AS lame-builder
-ENV LAME_BRANCH=master
-ADD https://github.com/ffmpegwasm/lame.git#$LAME_BRANCH /src
-COPY build/lame.sh /src/build.sh
-RUN bash -x /src/build.sh
 
 # Build ogg
 FROM emsdk-base AS ogg-builder
@@ -68,13 +56,6 @@ COPY --from=ogg-builder $INSTALL_DIR $INSTALL_DIR
 ENV VORBIS_BRANCH=v1.3.3
 ADD https://github.com/ffmpegwasm/vorbis.git#$VORBIS_BRANCH /src
 COPY build/vorbis.sh /src/build.sh
-RUN bash -x /src/build.sh
-
-# Build zlib
-FROM emsdk-base AS zlib-builder
-ENV ZLIB_BRANCH=v1.2.11
-ADD https://github.com/ffmpegwasm/zlib.git#$ZLIB_BRANCH /src
-COPY build/zlib.sh /src/build.sh
 RUN bash -x /src/build.sh
 
 # Build freetype2
@@ -113,9 +94,7 @@ FROM emsdk-base AS ffmpeg-base
 RUN embuilder build sdl2 sdl2-mt
 ADD https://github.com/FFmpeg/FFmpeg.git#$FFMPEG_VERSION /src
 COPY --from=x264-builder $INSTALL_DIR $INSTALL_DIR
-COPY --from=x265-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=libvpx-builder $INSTALL_DIR $INSTALL_DIR
-COPY --from=lame-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=opus-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=vorbis-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=libass-builder $INSTALL_DIR $INSTALL_DIR
