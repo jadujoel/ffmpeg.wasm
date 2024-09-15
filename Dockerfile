@@ -55,14 +55,6 @@ ADD https://github.com/ffmpegwasm/Ogg.git#$OGG_BRANCH /src
 COPY build/ogg.sh /src/build.sh
 RUN bash -x /src/build.sh
 
-# Build theora
-FROM emsdk-base AS theora-builder
-COPY --from=ogg-builder $INSTALL_DIR $INSTALL_DIR
-ENV THEORA_BRANCH=v1.1.1
-ADD https://github.com/ffmpegwasm/theora.git#$THEORA_BRANCH /src
-COPY build/theora.sh /src/build.sh
-RUN bash -x /src/build.sh
-
 # Build opus
 FROM emsdk-base AS opus-builder
 ENV OPUS_BRANCH=v1.3.1
@@ -133,7 +125,6 @@ COPY --from=x265-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=libvpx-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=lame-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=opus-builder $INSTALL_DIR $INSTALL_DIR
-COPY --from=theora-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=vorbis-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=libwebp-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=libass-builder $INSTALL_DIR $INSTALL_DIR
