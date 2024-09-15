@@ -168,12 +168,7 @@ ENV FFMPEG_LIBS \
       -lvorbis \
       -lvorbisenc \
       -lvorbisfile \
-      -lopus \
-      -lz \
-      -lwebpmux \
-      -lwebp \
-      -lsharpyuv \
-      -lfreetype
+      -lopus
 RUN mkdir -p /src/dist/esm && bash -x /src/build.sh \
       ${FFMPEG_LIBS} \
       -sEXPORT_ES6 \
