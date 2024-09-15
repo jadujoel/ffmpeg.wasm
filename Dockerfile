@@ -33,28 +33,23 @@ ADD https://github.com/ffmpegwasm/opus.git#$OPUS_BRANCH /src
 COPY build/opus.sh /src/build.sh
 RUN bash -x /src/build.sh
 
-# Build ffmpeg with only necessary components
-FROM emsdk-base AS ffmpeg-builder
-ADD https://github.com/FFmpeg/FFmpeg.git#$FFMPEG_VERSION /src
+# Build vorbis
+FROM emsdk-base AS vorbis-builder
 COPY --from=ogg-builder $INSTALL_DIR $INSTALL_DIR
+ENV VORBIS_BRANCH=v1.3.3
+ADD https://github.com/ffmpegwasm/vorbis.git#$VORBIS_BRANCH /src
+COPY build/vorbis.sh /src/build.sh
+RUN bash -x /src/build.sh
+
+# Build ffmpeg with only necessary components
+FROM emsdk-base AS ffmpeg-base
+ADD https://github.com/FFmpeg/FFmpeg.git#$FFMPEG_VERSION /src
 COPY --from=opus-builder $INSTALL_DIR $INSTALL_DIR
+COPY --from=vorbis-builder $INSTALL_DIR $INSTALL_DIR
 COPY build/ffmpeg.sh /src/build.sh
 RUN bash -x /src/build.sh \
-      --disable-everything \
-      --disable-doc \
-      --disable-programs \
-      --disable-avdevice \
-      --disable-swscale \
-      --disable-postproc \
-      --disable-avfilter \
-      --disable-network \
-      --enable-swresample \
-      --enable-decoder=opus \
-      --enable-demuxer=ogg \
-      --enable-muxer=wav \
-      --enable-encoder=pcm_s16le \
-      --enable-parser=opus \
-      --enable-protocol=file
+      --enable-libvorbis \
+      --enable-libopus
 
 # Build ffmpeg.wasm
 FROM ffmpeg-builder AS ffmpeg-wasm-builder
@@ -64,6 +59,9 @@ COPY build/ffmpeg-wasm.sh build.sh
 # Libraries to link
 ENV FFMPEG_LIBS \
       -logg \
+      -lvorbis
+      -lvorbisenc
+      -lvorbisfile
       -lopus
 RUN mkdir -p /src/dist/umd && bash -x /src/build.sh \
       ${FFMPEG_LIBS} \
@@ -74,5 +72,5 @@ RUN mkdir -p /src/dist/esm && bash -x /src/build.sh \
       -o dist/esm/ffmpeg-core.js
 
 # Export ffmpeg-core.wasm to dist/
-FROM scratch AS exporter
+FROM scratch AS exportor
 COPY --from=ffmpeg-wasm-builder /src/dist /dist

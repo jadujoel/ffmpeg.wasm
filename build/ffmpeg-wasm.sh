@@ -18,7 +18,6 @@ CONF_FLAGS=(
   $LDFLAGS
   -sWASM_BIGINT
   -sMODULARIZE
-  -sALLOW_MEMORY_GROWTH
   ${FFMPEG_MT:+ -sINITIAL_MEMORY=1024MB}   # ALLOW_MEMORY_GROWTH is not recommended when using threads, thus we use a large initial memory
   ${FFMPEG_MT:+ -sPTHREAD_POOL_SIZE=32}    # use 32 threads
   ${FFMPEG_ST:+ -sINITIAL_MEMORY=32MB -sALLOW_MEMORY_GROWTH} # Use just enough memory as memory usage can grow

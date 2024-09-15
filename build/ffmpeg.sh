@@ -15,15 +15,15 @@ CONF_FLAGS=(
   --disable-autodetect          # Disable environment autodetection
 
   # Disable all components by default
-  --disable-everything
+  # --disable-everything
 
-  # Enable only the necessary components
-  --enable-decoder=opus         # Enable Opus decoder
-  --enable-demuxer=ogg          # Enable Ogg demuxer
-  --enable-muxer=wav            # Enable WAV muxer
-  --enable-encoder=pcm_s16le    # Enable PCM signed 16-bit little-endian encoder
-  --enable-parser=opus          # Enable Opus parser
-  --enable-protocol=file        # Enable file protocol
+  # # Enable only the necessary components
+  # --enable-decoder=opus         # Enable Opus decoder
+  # --enable-demuxer=ogg          # Enable Ogg demuxer
+  # --enable-muxer=wav            # Enable WAV muxer
+  # --enable-encoder=pcm_s16le    # Enable PCM signed 16-bit little-endian encoder
+  # --enable-parser=opus          # Enable Opus parser
+  # --enable-protocol=file        # Enable file protocol
 
   # Assign toolchains and extra flags
   --nm=emnm
