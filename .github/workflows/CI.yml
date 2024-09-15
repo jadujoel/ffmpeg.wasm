@@ -54,7 +54,7 @@ jobs:
     - name: Build ffmpet-core-mt
       run: make prd-mt EXTRA_ARGS="--cache-from=type=local,src=build-cache-mt --cache-to=type=local,dest=build-cache-mt,mode=max"
     - name: Upload core-mt
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: ffmpeg-core-mt
         path: packages/core-mt/dist/*
