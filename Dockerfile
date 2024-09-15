@@ -155,8 +155,6 @@ RUN bash -x /src/build.sh \
       --enable-libx264 \
       --enable-libvorbis \
       --enable-libopus \
-      --enable-zlib \
-      --enable-libwebp \
       --enable-libfreetype \
       --enable-libfribidi \
       --enable-libzimg
