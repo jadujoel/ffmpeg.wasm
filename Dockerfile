@@ -63,7 +63,6 @@ FROM ffmpeg-base AS ffmpeg-builder
 COPY build/ffmpeg.sh /src/build.sh
 RUN bash -x /src/build.sh \
       --enable-gpl \
-      --enable-libx264 \
       --enable-libvorbis \
       --enable-libopus
 
