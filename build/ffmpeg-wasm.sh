@@ -12,7 +12,6 @@ CONF_FLAGS=(
   -I./src/fftools
   -I$INSTALL_DIR/include
   -L$INSTALL_DIR/lib
-  -Llibavcodec
   -Llibavdevice
   -Llibavfilter
   -Llibavformat
@@ -20,7 +19,6 @@ CONF_FLAGS=(
   -Llibpostproc
   -Llibswresample
   -Llibswscale
-  -lavcodec
   -lavdevice
   -lavfilter
   -lavformat
