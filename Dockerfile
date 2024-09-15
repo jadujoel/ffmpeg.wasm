@@ -153,10 +153,6 @@ COPY build/ffmpeg.sh /src/build.sh
 RUN bash -x /src/build.sh \
       --enable-gpl \
       --enable-libx264 \
-      --enable-libx265 \
-      --enable-libvpx \
-      --enable-libmp3lame \
-      --enable-libtheora \
       --enable-libvorbis \
       --enable-libopus \
       --enable-zlib \
