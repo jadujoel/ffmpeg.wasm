@@ -45,7 +45,7 @@ CONF_FLAGS=(
   src/fftools/ffmpeg_filter.c
   src/fftools/ffmpeg_hw.c
   src/fftools/ffmpeg_mux.c
-  src/fftools/ffmpeg_opt.c
+  # src/fftools/ffmpeg_opt.c
   # src/fftools/opt_common.c
 )
 
