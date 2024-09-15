@@ -45,10 +45,10 @@ RUN bash -x /src/build.sh \
       --disable-programs \
       --disable-avdevice \
       --disable-swscale \
-      --disable-swresample \
       --disable-postproc \
       --disable-avfilter \
       --disable-network \
+      --enable-swresample \
       --enable-decoder=opus \
       --enable-demuxer=ogg \
       --enable-muxer=wav \
