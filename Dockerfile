@@ -154,8 +154,7 @@ RUN bash -x /src/build.sh \
       --enable-gpl \
       --enable-libx264 \
       --enable-libvorbis \
-      --enable-libopus \
-      --enable-libfreetype
+      --enable-libopus
 
 # Build ffmpeg.wasm
 FROM ffmpeg-builder AS ffmpeg-wasm-builder
