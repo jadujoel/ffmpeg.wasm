@@ -27,7 +27,6 @@ ADD https://github.com/ffmpegwasm/x264.git#$X264_BRANCH /src
 COPY build/x264.sh /src/build.sh
 RUN bash -x /src/build.sh
 
-
 # Build ogg
 FROM emsdk-base AS ogg-builder
 ENV OGG_BRANCH=v1.3.4
