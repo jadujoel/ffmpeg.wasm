@@ -58,10 +58,11 @@ COPY --from=x264-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=opus-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=vorbis-builder $INSTALL_DIR $INSTALL_DIR
 
-# Build ffmpeg
+# Build ffmpeg, gpl needed for x264
 FROM ffmpeg-base AS ffmpeg-builder
 COPY build/ffmpeg.sh /src/build.sh
 RUN bash -x /src/build.sh \
+      --enable-gpl \
       --enable-libx264 \
       --enable-libvorbis \
       --enable-libopus
