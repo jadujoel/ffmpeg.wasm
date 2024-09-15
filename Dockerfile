@@ -164,10 +164,7 @@ COPY build/ffmpeg-wasm.sh build.sh
 # libraries to link
 ENV FFMPEG_LIBS \
       -lx264 \
-      -lvpx \
-      -lmp3lame \
       -logg \
-      -ltheora \
       -lvorbis \
       -lvorbisenc \
       -lvorbisfile \
@@ -181,9 +178,6 @@ ENV FFMPEG_LIBS \
       -lharfbuzz \
       -lass \
       -lzimg
-RUN mkdir -p /src/dist/umd && bash -x /src/build.sh \
-      ${FFMPEG_LIBS} \
-      -o dist/umd/ffmpeg-core.js
 RUN mkdir -p /src/dist/esm && bash -x /src/build.sh \
       ${FFMPEG_LIBS} \
       -sEXPORT_ES6 \
