@@ -27,15 +27,6 @@ ADD https://github.com/ffmpegwasm/x264.git#$X264_BRANCH /src
 COPY build/x264.sh /src/build.sh
 RUN bash -x /src/build.sh
 
-
-# Build libvpx
-FROM emsdk-base AS libvpx-builder
-ENV LIBVPX_BRANCH=v1.13.1
-ADD https://github.com/ffmpegwasm/libvpx.git#$LIBVPX_BRANCH /src
-COPY build/libvpx.sh /src/build.sh
-RUN bash -x /src/build.sh
-
-
 # Build ogg
 FROM emsdk-base AS ogg-builder
 ENV OGG_BRANCH=v1.3.4
@@ -94,7 +85,6 @@ FROM emsdk-base AS ffmpeg-base
 RUN embuilder build sdl2 sdl2-mt
 ADD https://github.com/FFmpeg/FFmpeg.git#$FFMPEG_VERSION /src
 COPY --from=x264-builder $INSTALL_DIR $INSTALL_DIR
-COPY --from=libvpx-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=opus-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=vorbis-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=libass-builder $INSTALL_DIR $INSTALL_DIR
