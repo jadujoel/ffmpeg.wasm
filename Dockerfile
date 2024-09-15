@@ -77,14 +77,6 @@ ADD https://github.com/ffmpegwasm/zlib.git#$ZLIB_BRANCH /src
 COPY build/zlib.sh /src/build.sh
 RUN bash -x /src/build.sh
 
-# Build libwebp
-FROM emsdk-base AS libwebp-builder
-COPY --from=zlib-builder $INSTALL_DIR $INSTALL_DIR
-ENV LIBWEBP_BRANCH=v1.3.2
-ADD https://github.com/ffmpegwasm/libwebp.git#$LIBWEBP_BRANCH /src
-COPY build/libwebp.sh /src/build.sh
-RUN bash -x /src/build.sh
-
 # Build freetype2
 FROM emsdk-base AS freetype2-builder
 ENV FREETYPE2_BRANCH=VER-2-10-4
@@ -126,7 +118,6 @@ COPY --from=libvpx-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=lame-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=opus-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=vorbis-builder $INSTALL_DIR $INSTALL_DIR
-COPY --from=libwebp-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=libass-builder $INSTALL_DIR $INSTALL_DIR
 
 # Build ffmpeg
