@@ -59,9 +59,9 @@ COPY build/ffmpeg-wasm.sh build.sh
 # Libraries to link
 ENV FFMPEG_LIBS \
       -logg \
-      -lvorbis
-      -lvorbisenc
-      -lvorbisfile
+      -lvorbis \
+      -lvorbisenc \
+      -lvorbisfile \
       -lopus
 RUN mkdir -p /src/dist/umd && bash -x /src/build.sh \
       ${FFMPEG_LIBS} \
