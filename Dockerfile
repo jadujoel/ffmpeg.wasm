@@ -163,6 +163,7 @@ COPY src/fftools /src/src/fftools
 COPY build/ffmpeg-wasm.sh build.sh
 # libraries to link
 ENV FFMPEG_LIBS \
+      -lx264 \
       -logg \
       -lvorbis \
       -lvorbisenc \
