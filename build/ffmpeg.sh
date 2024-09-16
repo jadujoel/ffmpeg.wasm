@@ -25,12 +25,12 @@ CONF_FLAGS=(
   --disable-network
   --disable-dct
   --disable-dwt
-  # --disable-error-resilience
+  --disable-error-resilience
   --disable-lsp
-  ## --disable-mdct
+  --disable-mdct
   --disable-rdft
   --disable-fft
-  ## --disable-faan
+  --disable-faan
   --disable-pixelutils
 
   --disable-alsa
