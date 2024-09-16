@@ -14,6 +14,9 @@ CONF_FLAGS=(
   --disable-runtime-cpudetect   # disable cpu detection
   --disable-autodetect          # disable env auto detect
 
+  # make smaller
+  --disable-avdevice
+
   # assign toolchains and extra flags
   --nm=emnm
   --ar=emar
@@ -26,7 +29,8 @@ CONF_FLAGS=(
   --extra-cxxflags="$CXXFLAGS"
 
   # disable thread when FFMPEG_ST is NOT defined
-  ${FFMPEG_ST:+ --disable-pthreads --disable-w32threads --disable-os2threads}
+  # ${FFMPEG_ST:+ --disable-pthreads --disable-w32threads --disable-os2threads}
+  --disable-pthreads --disable-w32threads --disable-os2threads
 )
 
 emconfigure ./configure "${CONF_FLAGS[@]}" $@
