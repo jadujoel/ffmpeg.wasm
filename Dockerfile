@@ -35,11 +35,11 @@ COPY build/ogg.sh /src/build.sh
 RUN bash -x /src/build.sh
 
 # Build opus
-FROM emsdk-base AS opus-builder
-ENV OPUS_BRANCH=v1.3.1
-ADD https://github.com/ffmpegwasm/opus.git#$OPUS_BRANCH /src
-COPY build/opus.sh /src/build.sh
-RUN bash -x /src/build.sh
+# FROM emsdk-base AS opus-builder
+# ENV OPUS_BRANCH=v1.3.1
+# ADD https://github.com/ffmpegwasm/opus.git#$OPUS_BRANCH /src
+# COPY build/opus.sh /src/build.sh
+# RUN bash -x /src/build.sh
 
 # Build vorbis
 # FROM emsdk-base AS vorbis-builder
@@ -51,10 +51,11 @@ RUN bash -x /src/build.sh
 
 # Base ffmpeg image with dependencies and source code populated.
 FROM emsdk-base AS ffmpeg-base
-RUN embuilder build sdl2 sdl2-mt
+# RUN embuilder build sdl2 sdl2-mt
+RUN embuilder build sdl2
 ADD https://github.com/FFmpeg/FFmpeg.git#$FFMPEG_VERSION /src
 COPY --from=x264-builder $INSTALL_DIR $INSTALL_DIR
-COPY --from=opus-builder $INSTALL_DIR $INSTALL_DIR
+# COPY --from=opus-builder $INSTALL_DIR $INSTALL_DIR
 # COPY --from=vorbis-builder $INSTALL_DIR $INSTALL_DIR
 
 # Build ffmpeg
