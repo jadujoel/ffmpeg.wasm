@@ -70,9 +70,9 @@ CONF_FLAGS=(
   --enable-decoder=pcm_s24le
   --disable-hwaccels
   --disable-muxers
-  --enable-muxer=wav
+  # --enable-muxer=wav
   --disable-demuxers
-  --enable-demuxer=wav
+  # --enable-demuxer=wav
   --disable-parsers
   --disable-bsfs
   # --disable-protocols # z.wav: Protocol not found, Did you mean file:z.wav?, adds 40kb
