@@ -49,14 +49,6 @@ ADD https://github.com/ffmpegwasm/vorbis.git#$VORBIS_BRANCH /src
 COPY build/vorbis.sh /src/build.sh
 RUN bash -x /src/build.sh
 
-# Build freetype2
-FROM emsdk-base AS freetype2-builder
-ENV FREETYPE2_BRANCH=VER-2-10-4
-ADD https://github.com/ffmpegwasm/freetype2.git#$FREETYPE2_BRANCH /src
-COPY build/freetype2.sh /src/build.sh
-RUN bash -x /src/build.sh
-
-
 # Base ffmpeg image with dependencies and source code populated.
 FROM emsdk-base AS ffmpeg-base
 RUN embuilder build sdl2 sdl2-mt
