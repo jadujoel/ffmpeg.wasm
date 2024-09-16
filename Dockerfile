@@ -71,14 +71,14 @@ RUN bash -x /src/build.sh
 # RUN bash -x /src/build.sh
 
 # Build libass
-FROM emsdk-base AS libass-builder
-COPY --from=freetype2-builder $INSTALL_DIR $INSTALL_DIR
-COPY --from=fribidi-builder $INSTALL_DIR $INSTALL_DIR
-# COPY --from=harfbuzz-builder $INSTALL_DIR $INSTALL_DIR
-ENV LIBASS_BRANCH=0.15.0
-ADD https://github.com/libass/libass.git#$LIBASS_BRANCH /src
-COPY build/libass.sh /src/build.sh
-RUN bash -x /src/build.sh
+# FROM emsdk-base AS libass-builder
+# COPY --from=freetype2-builder $INSTALL_DIR $INSTALL_DIR
+# COPY --from=fribidi-builder $INSTALL_DIR $INSTALL_DIR
+# # COPY --from=harfbuzz-builder $INSTALL_DIR $INSTALL_DIR
+# ENV LIBASS_BRANCH=0.15.0
+# ADD https://github.com/libass/libass.git#$LIBASS_BRANCH /src
+# COPY build/libass.sh /src/build.sh
+# RUN bash -x /src/build.sh
 
 # Base ffmpeg image with dependencies and source code populated.
 FROM emsdk-base AS ffmpeg-base
