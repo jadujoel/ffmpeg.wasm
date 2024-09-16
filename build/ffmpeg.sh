@@ -71,7 +71,7 @@ CONF_FLAGS=(
   # --disable-protocols
   # --disable-indevs
   # --disable-outdevs
-  # --disable-devices
+  --disable-devices
   # --disable-filters
 
   # assign toolchains and extra flags
