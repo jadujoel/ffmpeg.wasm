@@ -19,6 +19,7 @@ CONF_FLAGS=(
   ## --disable-swresample
   ## --disable-avcodec
   ## --disable-avformat
+  --disable-swscale-alpha
   ## --disable-swscale
   --disable-postproc
   ## --disable-avfilter
@@ -70,7 +71,7 @@ CONF_FLAGS=(
   --disable-demuxers
   --disable-parsers
   --disable-bsfs
-  --disable-protocols
+  # --disable-protocols needed to read files
   --disable-indevs
   --disable-outdevs
   --disable-devices
