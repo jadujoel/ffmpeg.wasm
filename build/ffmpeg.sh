@@ -50,17 +50,17 @@ CONF_FLAGS=(
   # --disable-zlib
   # --disable-amf
   # --disable-audiotoolbox
-  # --disable-cuda
-  # --disable-cuvid
-  # --disable-d3d11va
-  # --disable-dxva2
-  # --disable-ffnvcodec
-  # --disable-nvdec
-  # --disable-nvenc
-  # --disable-v4l2-m2m
-  # --disable-vaapi
-  # --disable-vdpau
-  # --disable-videotoolbox
+  --disable-cuda
+  --disable-cuvid
+  --disable-d3d11va
+  --disable-dxva2
+  --disable-ffnvcodec
+  --disable-nvdec
+  --disable-nvenc
+  --disable-v4l2-m2m
+  --disable-vaapi
+  --disable-vdpau
+  --disable-videotoolbox
 
   # --disable-decoders
   # --disable-hwaccels
@@ -68,7 +68,7 @@ CONF_FLAGS=(
   # --disable-demuxers
   # --disable-parsers
   # --disable-bsfs
-  --disable-protocols
+  # --disable-protocols
   # --disable-indevs
   # --disable-outdevs
   # --disable-devices
