@@ -24,14 +24,14 @@ CONF_FLAGS=(
   --disable-postproc
   ## --disable-avfilter
   --disable-network
-  --disable-dct
-  --disable-dwt
+  # --disable-dct
+  # --disable-dwt
   --disable-error-resilience
-  --disable-lsp
-  --disable-mdct
-  --disable-rdft
-  --disable-fft
-  --disable-faan
+  # --disable-lsp
+  # --disable-mdct
+  # --disable-rdft
+  # --disable-fft
+  # --disable-faan
   --disable-pixelutils
 
   --disable-alsa
