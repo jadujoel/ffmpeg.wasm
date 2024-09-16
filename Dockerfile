@@ -27,27 +27,27 @@ RUN apt-get update && \
 # COPY build/x264.sh /src/build.sh
 # RUN bash -x /src/build.sh
 
-# Build ogg
-# FROM emsdk-base AS ogg-builder
-# ENV OGG_BRANCH=v1.3.4
-# ADD https://github.com/ffmpegwasm/Ogg.git#$OGG_BRANCH /src
-# COPY build/ogg.sh /src/build.sh
-# RUN bash -x /src/build.sh
+Build ogg
+FROM emsdk-base AS ogg-builder
+ENV OGG_BRANCH=v1.3.4
+ADD https://github.com/ffmpegwasm/Ogg.git#$OGG_BRANCH /src
+COPY build/ogg.sh /src/build.sh
+RUN bash -x /src/build.sh
 
-# Build opus
-# FROM emsdk-base AS opus-builder
-# ENV OPUS_BRANCH=v1.3.1
-# ADD https://github.com/ffmpegwasm/opus.git#$OPUS_BRANCH /src
-# COPY build/opus.sh /src/build.sh
-# RUN bash -x /src/build.sh
+Build opus
+FROM emsdk-base AS opus-builder
+ENV OPUS_BRANCH=v1.3.1
+ADD https://github.com/ffmpegwasm/opus.git#$OPUS_BRANCH /src
+COPY build/opus.sh /src/build.sh
+RUN bash -x /src/build.sh
 
-# Build vorbis
-# FROM emsdk-base AS vorbis-builder
-# COPY --from=ogg-builder $INSTALL_DIR $INSTALL_DIR
-# ENV VORBIS_BRANCH=v1.3.3
-# ADD https://github.com/ffmpegwasm/vorbis.git#$VORBIS_BRANCH /src
-# COPY build/vorbis.sh /src/build.sh
-# RUN bash -x /src/build.sh
+Build vorbis
+FROM emsdk-base AS vorbis-builder
+COPY --from=ogg-builder $INSTALL_DIR $INSTALL_DIR
+ENV VORBIS_BRANCH=v1.3.3
+ADD https://github.com/ffmpegwasm/vorbis.git#$VORBIS_BRANCH /src
+COPY build/vorbis.sh /src/build.sh
+RUN bash -x /src/build.sh
 
 # Base ffmpeg image with dependencies and source code populated.
 FROM emsdk-base AS ffmpeg-base
@@ -55,8 +55,8 @@ FROM emsdk-base AS ffmpeg-base
 RUN embuilder build sdl2
 ADD https://github.com/FFmpeg/FFmpeg.git#$FFMPEG_VERSION /src
 # COPY --from=x264-builder $INSTALL_DIR $INSTALL_DIR
-# COPY --from=opus-builder $INSTALL_DIR $INSTALL_DIR
-# COPY --from=vorbis-builder $INSTALL_DIR $INSTALL_DIR
+COPY --from=opus-builder $INSTALL_DIR $INSTALL_DIR
+COPY --from=vorbis-builder $INSTALL_DIR $INSTALL_DIR
 
 # Build ffmpeg
 FROM ffmpeg-base AS ffmpeg-builder
@@ -72,12 +72,12 @@ COPY build/ffmpeg-wasm.sh build.sh
 
 # libraries to link
 # ENV FFMPEG_LIBS
-# ENV FFMPEG_LIBS \
-#       -logg \
-#       -lvorbis \
-#       -lvorbisenc \
-#       -lvorbisfile \
-#       -lopus
+ENV FFMPEG_LIBS \
+      -logg \
+      -lvorbis \
+      -lvorbisenc \
+      -lvorbisfile \
+      -lopus
 RUN mkdir -p /src/dist/esm && bash -x /src/build.sh \
       ${FFMPEG_LIBS} \
       -sEXPORT_ES6 \
