@@ -28,11 +28,11 @@ COPY build/x264.sh /src/build.sh
 RUN bash -x /src/build.sh
 
 # Build ogg
-FROM emsdk-base AS ogg-builder
-ENV OGG_BRANCH=v1.3.4
-ADD https://github.com/ffmpegwasm/Ogg.git#$OGG_BRANCH /src
-COPY build/ogg.sh /src/build.sh
-RUN bash -x /src/build.sh
+# FROM emsdk-base AS ogg-builder
+# ENV OGG_BRANCH=v1.3.4
+# ADD https://github.com/ffmpegwasm/Ogg.git#$OGG_BRANCH /src
+# COPY build/ogg.sh /src/build.sh
+# RUN bash -x /src/build.sh
 
 # Build opus
 # FROM emsdk-base AS opus-builder
