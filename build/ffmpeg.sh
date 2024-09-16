@@ -16,6 +16,23 @@ CONF_FLAGS=(
 
   # make smaller
   --disable-avdevice
+  --disable-swresample
+  # # --disable-avcodec
+  # # --disable-avformat
+  # --disable-swscale
+  # --disable-postproc
+  # # --disable-avfilter
+  # --disable-network
+  # --disable-dct
+  # --disable-dwt
+  # --disable-error-resilience
+  # --disable-lsp
+  # # --disable-mdct
+  # --disable-rdft
+  # --disable-fft
+  # # --disable-faan
+  # --disable-pixelutils
+
 
   # assign toolchains and extra flags
   --nm=emnm
