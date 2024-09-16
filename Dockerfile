@@ -70,7 +70,7 @@ COPY src/fftools /src/src/fftools
 COPY build/ffmpeg-wasm.sh build.sh
 
 # libraries to link
-ENV FFMPEG_LIBS
+# ENV FFMPEG_LIBS
 # ENV FFMPEG_LIBS \
 #       -logg \
 #       -lvorbis \
