@@ -56,29 +56,6 @@ ADD https://github.com/ffmpegwasm/freetype2.git#$FREETYPE2_BRANCH /src
 COPY build/freetype2.sh /src/build.sh
 RUN bash -x /src/build.sh
 
-# Build fribidi
-FROM emsdk-base AS fribidi-builder
-ENV FRIBIDI_BRANCH=v1.0.9
-ADD https://github.com/fribidi/fribidi.git#$FRIBIDI_BRANCH /src
-COPY build/fribidi.sh /src/build.sh
-RUN bash -x /src/build.sh
-
-# Build harfbuzz
-# FROM emsdk-base AS harfbuzz-builder
-# ENV HARFBUZZ_BRANCH=5.2.0
-# ADD https://github.com/harfbuzz/harfbuzz.git#$HARFBUZZ_BRANCH /src
-# COPY build/harfbuzz.sh /src/build.sh
-# RUN bash -x /src/build.sh
-
-# Build libass
-# FROM emsdk-base AS libass-builder
-# COPY --from=freetype2-builder $INSTALL_DIR $INSTALL_DIR
-# COPY --from=fribidi-builder $INSTALL_DIR $INSTALL_DIR
-# # COPY --from=harfbuzz-builder $INSTALL_DIR $INSTALL_DIR
-# ENV LIBASS_BRANCH=0.15.0
-# ADD https://github.com/libass/libass.git#$LIBASS_BRANCH /src
-# COPY build/libass.sh /src/build.sh
-# RUN bash -x /src/build.sh
 
 # Base ffmpeg image with dependencies and source code populated.
 FROM emsdk-base AS ffmpeg-base
@@ -87,7 +64,6 @@ ADD https://github.com/FFmpeg/FFmpeg.git#$FFMPEG_VERSION /src
 COPY --from=x264-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=opus-builder $INSTALL_DIR $INSTALL_DIR
 COPY --from=vorbis-builder $INSTALL_DIR $INSTALL_DIR
-# COPY --from=libass-builder $INSTALL_DIR $INSTALL_DIR
 
 # Build ffmpeg
 FROM ffmpeg-base AS ffmpeg-builder
@@ -101,6 +77,7 @@ FROM ffmpeg-builder AS ffmpeg-wasm-builder
 COPY src/bind /src/src/bind
 COPY src/fftools /src/src/fftools
 COPY build/ffmpeg-wasm.sh build.sh
+
 # libraries to link
 ENV FFMPEG_LIBS \
       -logg \
