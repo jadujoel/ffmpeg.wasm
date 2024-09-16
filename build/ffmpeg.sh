@@ -80,6 +80,7 @@ CONF_FLAGS=(
   --disable-outdevs
   --disable-devices
   --disable-filters
+  --enable-filter=anull
 
   # assign toolchains and extra flags
   --nm=emnm
