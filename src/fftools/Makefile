@@ -1,12 +1,14 @@
+echo "fftools/Makefile $@"
+
 AVPROGS-$(CONFIG_FFMPEG)   += ffmpeg
-AVPROGS-$(CONFIG_FFPLAY)   += ffplay
+# AVPROGS-$(CONFIG_FFPLAY)   += ffplay
 # AVPROGS-$(CONFIG_FFPROBE)  += ffprobe    # Exclude ffprobe
 
 AVPROGS     := $(AVPROGS-yes:%=%$(PROGSSUF)$(EXESUF))
 PROGS       += $(AVPROGS)
 
 # Remove ffprobe from AVBASENAMES and related variables
-AVBASENAMES  = ffmpeg ffplay   # Exclude ffprobe
+AVBASENAMES  = ffmpeg   # Exclude ffplay ffprobe
 ALLAVPROGS   = $(AVBASENAMES:%=%$(PROGSSUF)$(EXESUF))
 ALLAVPROGS_G = $(AVBASENAMES:%=%$(PROGSSUF)_g$(EXESUF))
 
