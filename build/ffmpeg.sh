@@ -61,11 +61,13 @@ CONF_FLAGS=(
   --disable-vaapi
   --disable-vdpau
   --disable-videotoolbox
+  --disable-cuda-llvm
 
-  # --disable-decoders
+  --disable-encoders
+  --disable-decoders
   --disable-hwaccels
   --disable-muxers
-  # --disable-demuxers
+  --disable-demuxers
   --disable-parsers
   --disable-bsfs
   --disable-protocols
