@@ -60,9 +60,8 @@ COPY --from=vorbis-builder $INSTALL_DIR $INSTALL_DIR
 # Build ffmpeg
 FROM ffmpeg-base AS ffmpeg-builder
 COPY build/ffmpeg.sh /src/build.sh
-RUN bash -x /src/build.sh \
-      --enable-libvorbis \
-      --enable-libopus
+# RUN bash -x /src/build.sh \
+RUN bash -x /src/build.sh
 
 # Build ffmpeg.wasm
 FROM ffmpeg-builder AS ffmpeg-wasm-builder
@@ -71,12 +70,13 @@ COPY src/fftools /src/src/fftools
 COPY build/ffmpeg-wasm.sh build.sh
 
 # libraries to link
-ENV FFMPEG_LIBS \
-      -logg \
-      -lvorbis \
-      -lvorbisenc \
-      -lvorbisfile \
-      -lopus
+ENV FFMPEG_LIBS
+# ENV FFMPEG_LIBS \
+#       -logg \
+#       -lvorbis \
+#       -lvorbisenc \
+#       -lvorbisfile \
+#       -lopus
 RUN mkdir -p /src/dist/esm && bash -x /src/build.sh \
       ${FFMPEG_LIBS} \
       -sEXPORT_ES6 \
