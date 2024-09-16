@@ -33,22 +33,22 @@ CONF_FLAGS=(
   ## --disable-faan
   --disable-pixelutils
 
-  # --disable-alsa
-  # --disable-appkit
-  # --disable-avfoundation
+  --disable-alsa
+  --disable-appkit
+  --disable-avfoundation
   # --disable-bzlib
-  # --disable-coreimage
-  # --disable-iconv
+  --disable-coreimage
+  --disable-iconv
   # --disable-lzma
   # --disable-metal
-  # --disable-sndio
-  # --disable-schannel
+  --disable-sndio
+  --disable-schannel
   # --disable-sdl2
-  # --disable-securetransport
-  # --disable-vulkan
+  --disable-securetransport
+  --disable-vulkan
   # --disable-xlib
   # --disable-zlib
-  # --disable-amf
+  --disable-amf
   # --disable-audiotoolbox
   --disable-cuda
   --disable-cuvid
@@ -67,12 +67,12 @@ CONF_FLAGS=(
   # --disable-muxers
   # --disable-demuxers
   # --disable-parsers
-  # --disable-bsfs
-  # --disable-protocols
-  # --disable-indevs
-  # --disable-outdevs
-  # --disable-devices
-  # --disable-filters
+  --disable-bsfs
+  --disable-protocols
+  --disable-indevs
+  --disable-outdevs
+  --disable-devices
+  --disable-filters
 
   # assign toolchains and extra flags
   --nm=emnm
