@@ -16,23 +16,63 @@ CONF_FLAGS=(
 
   # make smaller
   --disable-avdevice
-  --disable-swresample
-  # # --disable-avcodec
-  # # --disable-avformat
-  # --disable-swscale
-  # --disable-postproc
-  # # --disable-avfilter
-  # --disable-network
+  ## --disable-swresample
+  ## --disable-avcodec
+  ## --disable-avformat
+  ## --disable-swscale
+  --disable-postproc
+  ## --disable-avfilter
+  --disable-network
   # --disable-dct
   # --disable-dwt
   # --disable-error-resilience
   # --disable-lsp
-  # # --disable-mdct
+  ## --disable-mdct
   # --disable-rdft
   # --disable-fft
-  # # --disable-faan
-  # --disable-pixelutils
+  ## --disable-faan
+  --disable-pixelutils
 
+  # --disable-alsa
+  # --disable-appkit
+  # --disable-avfoundation
+  # --disable-bzlib
+  # --disable-coreimage
+  # --disable-iconv
+  # --disable-lzma
+  # --disable-metal
+  # --disable-sndio
+  # --disable-schannel
+  # --disable-sdl2
+  # --disable-securetransport
+  # --disable-vulkan
+  # --disable-xlib
+  # --disable-zlib
+  # --disable-amf
+  # --disable-audiotoolbox
+  # --disable-cuda
+  # --disable-cuvid
+  # --disable-d3d11va
+  # --disable-dxva2
+  # --disable-ffnvcodec
+  # --disable-nvdec
+  # --disable-nvenc
+  # --disable-v4l2-m2m
+  # --disable-vaapi
+  # --disable-vdpau
+  # --disable-videotoolbox
+
+  # --disable-decoders
+  # --disable-hwaccels
+  # --disable-muxers
+  # --disable-demuxers
+  # --disable-parsers
+  # --disable-bsfs
+  # --disable-protocols
+  # --disable-indevs
+  # --disable-outdevs
+  # --disable-devices
+  # --disable-filters
 
   # assign toolchains and extra flags
   --nm=emnm
