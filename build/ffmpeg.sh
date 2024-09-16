@@ -63,10 +63,10 @@ CONF_FLAGS=(
   --disable-videotoolbox
 
   # --disable-decoders
-  # --disable-hwaccels
-  # --disable-muxers
+  --disable-hwaccels
+  --disable-muxers
   # --disable-demuxers
-  # --disable-parsers
+  --disable-parsers
   --disable-bsfs
   --disable-protocols
   --disable-indevs
