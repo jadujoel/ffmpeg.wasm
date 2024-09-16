@@ -21,11 +21,11 @@ RUN apt-get update && \
       apt-get install -y pkg-config autoconf automake libtool ragel
 
 # Build x264
-FROM emsdk-base AS x264-builder
-ENV X264_BRANCH=4-cores
-ADD https://github.com/ffmpegwasm/x264.git#$X264_BRANCH /src
-COPY build/x264.sh /src/build.sh
-RUN bash -x /src/build.sh
+# FROM emsdk-base AS x264-builder
+# ENV X264_BRANCH=4-cores
+# ADD https://github.com/ffmpegwasm/x264.git#$X264_BRANCH /src
+# COPY build/x264.sh /src/build.sh
+# RUN bash -x /src/build.sh
 
 # Build ogg
 # FROM emsdk-base AS ogg-builder
@@ -54,7 +54,7 @@ FROM emsdk-base AS ffmpeg-base
 # RUN embuilder build sdl2 sdl2-mt
 RUN embuilder build sdl2
 ADD https://github.com/FFmpeg/FFmpeg.git#$FFMPEG_VERSION /src
-COPY --from=x264-builder $INSTALL_DIR $INSTALL_DIR
+# COPY --from=x264-builder $INSTALL_DIR $INSTALL_DIR
 # COPY --from=opus-builder $INSTALL_DIR $INSTALL_DIR
 # COPY --from=vorbis-builder $INSTALL_DIR $INSTALL_DIR
 
