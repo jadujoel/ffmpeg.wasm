@@ -81,6 +81,7 @@ CONF_FLAGS=(
   --disable-devices
   --disable-filters
   --enable-filter=anull
+  --enable-filter=aformat
 
   # assign toolchains and extra flags
   --nm=emnm
