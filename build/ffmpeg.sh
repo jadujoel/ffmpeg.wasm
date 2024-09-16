@@ -68,11 +68,11 @@ CONF_FLAGS=(
   # --disable-demuxers
   # --disable-parsers
   # --disable-bsfs
-  # --disable-protocols
+  --disable-protocols
   # --disable-indevs
   # --disable-outdevs
   # --disable-devices
-  --disable-filters
+  # --disable-filters
 
   # assign toolchains and extra flags
   --nm=emnm
