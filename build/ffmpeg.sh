@@ -68,11 +68,14 @@ CONF_FLAGS=(
   --enable-encoder=pcm_s24le
   --disable-decoders
   --enable-decoder=pcm_s24le
+  --enable-decoder=opus
   --disable-hwaccels
   --disable-muxers
-  # --enable-muxer=wav
+  --enable-muxer=wav
   --disable-demuxers
-  # --enable-demuxer=wav
+  # enable webm opus demuxer
+  --enable-demuxer=wav
+  --enable-demuxer=webm
   --disable-parsers
   --disable-bsfs
   # --disable-protocols # z.wav: Protocol not found, Did you mean file:z.wav?, adds 40kb
