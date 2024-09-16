@@ -36,20 +36,20 @@ CONF_FLAGS=(
   --disable-alsa
   --disable-appkit
   --disable-avfoundation
-  # --disable-bzlib
+  --disable-bzlib
   --disable-coreimage
   --disable-iconv
-  # --disable-lzma
-  # --disable-metal
+  --disable-lzma
+  --disable-metal
   --disable-sndio
   --disable-schannel
   # --disable-sdl2
   --disable-securetransport
   --disable-vulkan
-  # --disable-xlib
-  # --disable-zlib
+  --disable-xlib
+  --disable-zlib
   --disable-amf
-  # --disable-audiotoolbox
+  --disable-audiotoolbox
   --disable-cuda
   --disable-cuvid
   --disable-d3d11va
