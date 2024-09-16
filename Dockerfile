@@ -105,7 +105,6 @@ COPY build/ffmpeg-wasm.sh build.sh
 ENV FFMPEG_LIBS \
       -logg \
       -lvorbis \
-      -lvorbisenc \
       -lvorbisfile \
       -lopus
 RUN mkdir -p /src/dist/esm && bash -x /src/build.sh \
