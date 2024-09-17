@@ -75,8 +75,9 @@ CONF_FLAGS=(
   --disable-demuxers
   # enable webm opus demuxer
   --enable-demuxer=wav
-  --enable-demuxer=webm
+  --enable-demuxer=matroska
   --disable-parsers
+  --enable-parser=opus
   --disable-bsfs
   # --disable-protocols # z.wav: Protocol not found, Did you mean file:z.wav?, adds 40kb
   --disable-indevs
