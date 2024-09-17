@@ -85,6 +85,7 @@ CONF_FLAGS=(
   --disable-filters
   --enable-filter=anull
   --enable-filter=aformat
+  --enable-filter=aresample
 
   # assign toolchains and extra flags
   --nm=emnm
