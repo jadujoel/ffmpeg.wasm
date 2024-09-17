@@ -29,7 +29,8 @@ jobs:
     #     restore-keys: |
     #       build-cache-st-v1-
     - name: Build ffmpeg-core
-      run: make prd EXTRA_ARGS="--cache-from=type=local,src=build-cache-st --cache-to=type=local,dest=build-cache-st,mode=max"
+      # run: make prd EXTRA_ARGS="--cache-from=type=local,src=build-cache-st --cache-to=type=local,dest=build-cache-st,mode=max"
+      run: make prd
     - name: Upload core
       uses: actions/upload-artifact@v4
       with:
