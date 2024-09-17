@@ -34,14 +34,14 @@ ADD https://github.com/ffmpegwasm/Ogg.git#$OGG_BRANCH /src
 COPY build/ogg.sh /src/build.sh
 RUN bash -x /src/build.sh
 
-Build opus
+# Build opus
 FROM emsdk-base AS opus-builder
 ENV OPUS_BRANCH=v1.3.1
 ADD https://github.com/ffmpegwasm/opus.git#$OPUS_BRANCH /src
 COPY build/opus.sh /src/build.sh
 RUN bash -x /src/build.sh
 
-Build vorbis
+# Build vorbis
 FROM emsdk-base AS vorbis-builder
 COPY --from=ogg-builder $INSTALL_DIR $INSTALL_DIR
 ENV VORBIS_BRANCH=v1.3.3
