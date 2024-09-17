@@ -73,7 +73,7 @@ CONF_FLAGS=(
   --disable-muxers
   --enable-muxer=wav
   # for pcm audio
-  --enable-muxer=rawaudio
+  --enable-muxer=s24le
   --disable-demuxers
   # enable decode of .wav files
   --enable-demuxer=wav
