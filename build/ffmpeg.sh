@@ -73,9 +73,12 @@ CONF_FLAGS=(
   --disable-muxers
   --enable-muxer=wav
   --disable-demuxers
-  # enable webm opus demuxer
+  # enable decode of .wav files
   --enable-demuxer=wav
+  # enable decode of .webm files
   --enable-demuxer=matroska
+  # enable decode of .opus files
+  --enable-demuxer=ogg
   --disable-parsers
   --enable-parser=opus
   --disable-bsfs
