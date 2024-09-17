@@ -75,6 +75,8 @@ CONF_FLAGS=(
   --enable-muxer=wav
   # for pcm audio
   --enable-muxer=s24le
+  --enable-muxer=pcm
+  --enable-muxer=pcm_s24le
   --disable-demuxers
   # enable decode of .wav files
   --enable-demuxer=wav
