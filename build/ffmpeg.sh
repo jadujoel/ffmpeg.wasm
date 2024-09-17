@@ -65,6 +65,7 @@ CONF_FLAGS=(
   --disable-cuda-llvm
 
   --disable-encoders
+  --enable-encoder=s24le
   --enable-encoder=pcm_s24le
   --disable-decoders
   --enable-decoder=pcm_s24le
@@ -83,6 +84,7 @@ CONF_FLAGS=(
   --enable-demuxer=ogg
   --disable-parsers
   --enable-parser=opus
+  --enable-parser=s24le
   --disable-bsfs
   # --disable-protocols # z.wav: Protocol not found, Did you mean file:z.wav?, adds 40kb
   --disable-indevs
