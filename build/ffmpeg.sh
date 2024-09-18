@@ -64,7 +64,6 @@ CONF_FLAGS=(
   --disable-videotoolbox
   --disable-cuda-llvm
 
---d
   --disable-encoders
   --enable-encoder=s24le
   --enable-encoder=pcm_s16le
