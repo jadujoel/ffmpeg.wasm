@@ -20,19 +20,19 @@ jobs:
     - name: Setup Docker Buildx
       id: buildx
       uses: docker/setup-buildx-action@v2
-    - name: Cache build
-      id: cache-build
-      uses: actions/cache@v2
-      with:
-        path: build-cache-st
-        key: build-cache-st-v1-${{ hashFiles('Dockerfile', 'Makefile', 'build/*') }}
-        restore-keys: |
-          build-cache-st-v1-
+    # - name: Cache build
+    #   id: cache-build
+    #   uses: actions/cache@v2
+    #   with:
+    #     path: build-cache-st
+    #     key: build-cache-st-v1-${{ hashFiles('Dockerfile', 'Makefile', 'build/*') }}
+    #     restore-keys: |
+    #       build-cache-st-v1-
     - name: Build ffmpeg-core
-      run: make prd EXTRA_ARGS="--cache-from=type=local,src=build-cache-st --cache-to=type=local,dest=build-cache-st,mode=max"
+      # run: make prd EXTRA_ARGS="--cache-from=type=local,src=build-cache-st --cache-to=type=local,dest=build-cache-st,mode=max"
+      run: make prd
     - name: Upload core
       uses: actions/upload-artifact@v4
       with:
         name: ffmpeg-core
         path: packages/core/dist/*
-  

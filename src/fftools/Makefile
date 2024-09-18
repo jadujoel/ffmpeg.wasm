@@ -1,11 +1,14 @@
+echo "fftools/Makefile $@"
+
 AVPROGS-$(CONFIG_FFMPEG)   += ffmpeg
-AVPROGS-$(CONFIG_FFPLAY)   += ffplay
-AVPROGS-$(CONFIG_FFPROBE)  += ffprobe
+# AVPROGS-$(CONFIG_FFPLAY)   += ffplay
+# AVPROGS-$(CONFIG_FFPROBE)  += ffprobe    # Exclude ffprobe
 
 AVPROGS     := $(AVPROGS-yes:%=%$(PROGSSUF)$(EXESUF))
 PROGS       += $(AVPROGS)
 
-AVBASENAMES  = ffmpeg ffplay ffprobe
+# Remove ffprobe from AVBASENAMES and related variables
+AVBASENAMES  = ffmpeg   # Exclude ffplay ffprobe
 ALLAVPROGS   = $(AVBASENAMES:%=%$(PROGSSUF)$(EXESUF))
 ALLAVPROGS_G = $(AVBASENAMES:%=%$(PROGSSUF)_g$(EXESUF))
 
@@ -29,7 +32,8 @@ $(foreach P,$(AVPROGS-yes),$(eval $(call DOFFTOOL,$(P))))
 
 all: $(AVPROGS)
 
-fftools/ffprobe.o fftools/cmdutils.o: libavutil/ffversion.h | fftools
+# Remove references to ffprobe here
+# fftools/ffprobe.o fftools/cmdutils.o: libavutil/ffversion.h | fftools
 OUTDIRS += fftools
 
 ifdef AVPROGS
