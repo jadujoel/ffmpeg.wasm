@@ -66,17 +66,25 @@ CONF_FLAGS=(
 
   --disable-encoders
   --enable-encoder=s24le
+  --enable-encoder=pcm_s16le
   --enable-encoder=pcm_s24le
+  --enable-encoder=pcm_f32le
   --disable-decoders
+  --enable-decoder=pcm_s16le
   --enable-decoder=pcm_s24le
+  --enable-decoder=pcm_f32le
   --enable-decoder=opus
   --disable-hwaccels
   --disable-muxers
   --enable-muxer=wav
   # for pcm audio
+  --enable-muxer=s16le
   --enable-muxer=s24le
+  --enable-muxer=f32le
   --enable-muxer=pcm
+  --enable-muxer=pcm_s16le
   --enable-muxer=pcm_s24le
+  --enable-muxer=pcm_f32le
   --disable-demuxers
   # enable decode of .wav files
   --enable-demuxer=wav
@@ -87,6 +95,9 @@ CONF_FLAGS=(
   --disable-parsers
   --enable-parser=opus
   --enable-parser=s24le
+  --enable-parser=s16le
+  --enable-parser=f32le
+  --enable-parser=pcm
   --disable-bsfs
   # --disable-protocols # z.wav: Protocol not found, Did you mean file:z.wav?, adds 40kb
   --disable-indevs
