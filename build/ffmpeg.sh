@@ -64,15 +64,16 @@ CONF_FLAGS=(
   --disable-videotoolbox
   --disable-cuda-llvm
 
+--d
   --disable-encoders
   --enable-encoder=s24le
   --enable-encoder=pcm_s16le
   --enable-encoder=pcm_s24le
-  --enable-encoder=pcm_f32le_planar
+  --enable-encoder=pcm_f32le
   --disable-decoders
   --enable-decoder=pcm_s16le
   --enable-decoder=pcm_s24le
-  --enable-decoder=pcm_f32le_planar
+  --enable-decoder=pcm_f32le
   --enable-decoder=opus
   --disable-hwaccels
   --disable-muxers
@@ -85,7 +86,6 @@ CONF_FLAGS=(
   --enable-muxer=pcm_s16le
   --enable-muxer=pcm_s24le
   --enable-muxer=pcm_f32le
-  --enable-muxer=pcm_f32le_planar
   --disable-demuxers
   # enable decode of .wav files
   --enable-demuxer=wav
@@ -98,8 +98,6 @@ CONF_FLAGS=(
   --enable-parser=s24le
   --enable-parser=s16le
   --enable-parser=f32le
-  --enable-parser=f32le_planar
-  --enable-parser=pcm
   --disable-bsfs
   # --disable-protocols # z.wav: Protocol not found, Did you mean file:z.wav?, adds 40kb
   --disable-indevs
@@ -109,6 +107,11 @@ CONF_FLAGS=(
   --enable-filter=anull
   --enable-filter=aformat
   --enable-filter=aresample
+
+  --disable-decoder=4xm
+  --disable-decoder=8bps
+  --disable-encoder=4xm
+  --disable-encoder=8bps
 
   # assign toolchains and extra flags
   --nm=emnm
